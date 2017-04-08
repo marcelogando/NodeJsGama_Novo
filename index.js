@@ -2,20 +2,22 @@
 var bodyParser = require('body-parser')
 var MongoClient = require('mongodb').MongoClient
 
-var app = express();
+var app = express()
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 
-MongoClient.connect('mongodb://marcelogando:Twhccdc33f@ds145780.mlab.com:45780/demo', function (err, db) {
+
+MongoClient.connect('mongodb://demoUser:gama@ds155490.mlab.com:55490/demo', function (err, db) {
     if (err) {
         throw err;
     }
 
-    app.listen(3000, function () {
+    app.listen(process.env.PORT || 3000, function () {
         console.log('Example app listening on port 3000!');
     });
 
-    require('./routes/user.route')(app, db);
+
+    require('./routes/user.route')(app, db)
 
     console.log('banco de dados conectado')
 });

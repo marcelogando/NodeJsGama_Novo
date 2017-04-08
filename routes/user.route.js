@@ -1,4 +1,5 @@
 ﻿module.exports = function (app, db) {
+
     app.get('/api/user', function (req, res) {
 
         db.collection('teste').find().toArray(function (err, result) {
@@ -29,5 +30,8 @@
             res.status(500).send(error)
 
         }
+
+
+
     });
 }
